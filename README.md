@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 ## テーブル設計
 
 ## users
@@ -72,3 +73,14 @@
 
 - belongs_to :purchase
 
+=======
+# テーブル設計
+
+## users テーブル
+
+| 
+|
+|
+|
+|
+>>>>>>> Stashed changes
