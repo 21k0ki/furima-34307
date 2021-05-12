@@ -7,8 +7,12 @@
 | nickname           | string       | null: false  |
 | email              | string       | unique: true |
 | encrypted_password | string       | null: false  |
-| birthday           | string       | null: false  |
-| real_name          | string       | null: false  |
+| birthday           | date         | null: false  |
+| last_name          | string       | null: false  |
+| first_name         | string       | null: false  |
+| last_name_kana     | string       | null: false  |
+| first_name_kana    | string       | null: false  |
+
 
 ## Association
 
@@ -18,18 +22,18 @@
 
 ## items
 
-| Column                  | Type         | Options      |
-| --------                | ------       | -----------  |
-| item_name               | string       | null: false  |
-| item_description        | text         | null: false  |
-| seller                  | string       | null: false  |
-| category                | string       | null: false  |
-| item_status             | string       | null: false  |
-| shopping_charge         | string       | null: false  |
-| shipping_area           | string       | null: false  | 
-| estimated_shipping_date | string       | null: false  | 
-| selling price           | integer      | null: false  |
-
+| Column                     | Type         | Options      |
+| --------                   | ------       | -----------  |
+| item_name                  | string       | null: false  |
+| item_description           | text         | null: false  |
+<!-- | seller                     | string       | null: false  | -->
+| category_id                | integer       | null: false  |
+| item_status_id             | integer       | null: false  |
+| shopping_charge_id         | integer       | null: false  |
+| shipping_area_id           | integer       | null: false  | 
+| estimated_shipping_date_id | integer       | null: false  | 
+| selling price              | integer       | null: false  |
+ 
 ## Association
 
 - belongs_to :user
@@ -38,10 +42,10 @@
 
 ## purchases
 
-| Column             | Type         | Options      |
-| --------           | ------       | -----------  |
-| buyer              | string       | null: false  |
-| address            | string       | null: false  |
+| Column | Type       | Options                        |
+| ------ | ---------- | ------------------------------ |
+| user   | references | null: false, foreign_key: true |
+| item   | references | null: false, foreign_key: true |
 
 ## Association
 
@@ -53,7 +57,13 @@
 
 | Column             | Type         | Options      |
 | --------           | ------       | -----------  |
-| address            | string       | null: false  |
+| postcode           | string       | null: false  |
+| prefecture_id      | integer      | null: false  |
+| city               | string       | null: false  |
+| block              | string       | null: false  |
+| building           | string       | null: false  |
+| phone_number       | string       | null: false  |
+
 
 ## Association
 
