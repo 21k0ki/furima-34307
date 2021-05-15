@@ -58,4 +58,4 @@ group :development do
   gem 'rubocop', require: false
 end
 
-# gem 'sprockets’
+gem 'devise'
