@@ -4,7 +4,4 @@ class Estimated_shopping_date < ActiveHash::Base
     { id: 2, name: '2~3日で発送' },
     { id: 2, name: '3~7日で発送' }
   ]
-
-  include ActiveHash::Associations
-  has_many :items
 end
