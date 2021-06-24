@@ -1,19 +1,13 @@
 class PurchasesController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   before_action :move_to_index, only: [:index]
-  # before_action :authenticate_user!, only: [:index]
+  before_action :set_item, only: [:index, :create]
 
   def index
-    @purchase_shipping = PurchaseShipping.new
-    @item = Item.find(params[:item_id])
-  end
-
-  def new
     @purchase_shipping = PurchaseShipping.new
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @purchase_shipping = PurchaseShipping.new(purchase_params)
     if @purchase_shipping.valid?
       pay_item
@@ -44,6 +38,10 @@ class PurchasesController < ApplicationController
     if current_user.id == @purchases.user_id
       redirect_to root_path
     end
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
 end

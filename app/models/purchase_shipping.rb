@@ -10,7 +10,6 @@ class PurchaseShipping
   validates :city
   validates :house_number
   validates :phone_number,  numericality: { only_integer: true, message: "Input only number"}
-  # validates :prefecture_id, numericality: {other_than: 0, message: "can't be blank"}
   end
   validates :prefecture_id, numericality: { other_than: 0 }
 
