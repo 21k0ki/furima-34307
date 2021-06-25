@@ -52,9 +52,23 @@ RSpec.describe PurchaseShipping, type: :model do
         @purchase_shipping.valid?
         expect(@purchase_shipping.errors.full_messages).to include("Phone number Input only number")
       end
+      it 'phone_numberは全角数字だと登録できない' do
+        @purchase_shipping.phone_number = "３２４"
+        @purchase_shipping.valid?
+        expect(@purchase_shipping.errors.full_messages).to include("Phone number Input only number")
+      end
+      it 'phone_numberは１２桁だと登録でいない'do
+        @purchase_shipping.phone_number = "111111111111"
+        @purchase_shipping.valid?
+        expect(@purchase_shipping.errors.full_messages).to include("Phone number Input only number")
+      end
+
 
     context '商品が購入できるとき' do
       it 'token,postal_code,prefecture_id,city,house_number,phone_numberが存在するとき' do
+        expect(@purchase_shipping).to be_valid
+      end
+      it 'building_nameはなくても登録できる' do
         expect(@purchase_shipping).to be_valid
       end
     end
