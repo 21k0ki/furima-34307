@@ -35,7 +35,7 @@ class PurchasesController < ApplicationController
 
   def move_to_index
     @item = Item.find(params[:item_id])
-    if @item.purchase.present?
+    if @item.purchase.present? || @item.user_id
       redirect_to root_path
     end
   end
