@@ -23,7 +23,7 @@ RSpec.describe PurchaseShipping, type: :model do
         expect(@purchase_shipping.errors.full_messages).to include("Postal code can't be blank")
       end
       it 'postal_codeに-がない登録できない' do
-        @purchase_shipping.postal_code = 12-22
+        @purchase_shipping.postal_code = "112333"
         @purchase_shipping.valid?
         expect(@purchase_shipping.errors.full_messages).to include("Postal code is invalid. Include hyphen(-)")
       end
