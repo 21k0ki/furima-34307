@@ -34,8 +34,8 @@ class PurchasesController < ApplicationController
   end
 
   def move_to_index
-    # @purchases = Item.find(params[:item_id])
-    if !@purchase.present?
+    @item = Item.find(params[:item_id])
+    if @item.purchase.present?
       redirect_to root_path
     end
   end
