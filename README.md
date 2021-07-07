@@ -1,4 +1,4 @@
-<<<<<<< Updated upstream
+
 ## テーブル設計
 
 ## users
